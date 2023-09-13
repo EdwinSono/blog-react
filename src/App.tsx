@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Menu } from './components/Menu';
+import { AuthRoute } from './components/AuthRoute'
 import { AuthProvider } from './auth'
 import { HomePage } from './pages/HomePage';
 import { BlogPage } from './pages/BlogPage';
@@ -26,8 +27,16 @@ function App() {
             <Route path="/blog/:slug" element={<BlogPost />}/>
           </Route>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/logout" element={<LogoutPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/logout" element={
+            <AuthRoute>
+              <LogoutPage />
+            </AuthRoute>
+          } />
+          <Route path="/profile" element={
+            <AuthRoute>
+              <ProfilePage />
+            </AuthRoute>
+          } />
           <Route path="/states" element={<StatePage />} />
 
           <Route path="*" element={<p>Not found</p>} />
