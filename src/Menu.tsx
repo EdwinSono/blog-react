@@ -36,5 +36,9 @@ routes.push({
   to: '/profile',
   text: 'Profile',
 });
+routes.push({
+  to: '/states',
+  text: 'Estados',
+});
 
 export { Menu };
