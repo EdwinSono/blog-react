@@ -1,6 +1,10 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
+// import { UseState } from '../UseState';
+import { UseReducer } from './UseReducer';
+import { UseState } from './UseState';
+// import { ClassState } from './ClassState';
 import './App.css'
 
 function App() {
@@ -16,7 +20,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Practicando estados</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -25,9 +29,12 @@ function App() {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className="App">
+        <div className="App-section"><UseState name="Use State" /></div>
+        {/* <div className="App-section"><ClassState name="Class State" /></div> */}
+        {/* <UseState name="Use State" /> */}
+        <div className="App-section"><UseReducer name="Use Reducer" /></div>
+      </div>
     </>
   )
 }

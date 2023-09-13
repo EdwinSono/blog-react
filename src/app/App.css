@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+.App-section {
+  height: 50vh;
+  overflow-y: hidden;
+  border: 1px solid #09d3ac;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
