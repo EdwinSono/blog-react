@@ -38,7 +38,9 @@ export default defineConfig(({ command, mode }) => {
     ],
     resolve: {
       alias: getAliases(),
-    }
+    },
+    // base: '/',
+    base: 'https://edwinsono.github.io/todolist/',
   }
   
   console.log(`comando: ${command} y modo: ${mode}`);
