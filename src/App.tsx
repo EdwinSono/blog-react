@@ -1,11 +1,18 @@
 import { useState } from 'react'
-import reactLogo from '../assets/react.svg'
+import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 // import { UseState } from '../UseState';
-import { UseReducer } from './UseReducer';
-import { UseState } from './UseState';
+import { UseReducer } from './app/UseReducer';
+import { UseState } from './app/UseState';
 // import { ClassState } from './ClassState';
 import './App.css'
+
+// import { HashRouter, Routes, Route } from 'react-router-dom';
+// import { Menu } from './Menu';
+// import { HomePage } from './HomePage';
+// import { BlogPage } from './BlogPage';
+// import { ProfilePage } from './ProfilePage';
+
 
 function App() {
   const [count, setCount] = useState(0)
