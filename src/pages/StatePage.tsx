@@ -2,9 +2,9 @@
 import { useState } from 'react'
 import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
-import { UseReducer } from '../app/UseReducer';
-import { UseState } from '../app/UseState';
-import { ClassState } from '../app/ClassState';
+import { UseReducer } from '../components/UseReducer';
+import { UseState } from '../components/UseState';
+import { ClassState } from '../components/ClassState';
 
 function StatePage() {
   const [count, setCount] = useState(0)

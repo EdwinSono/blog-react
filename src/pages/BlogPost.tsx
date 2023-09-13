@@ -11,6 +11,7 @@ function BlogPost() {
 
   const returnToBlog = () => {
     navigate('/blog');
+    // navigate(-1);
   };
   
   return (
