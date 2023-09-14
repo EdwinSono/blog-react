@@ -40,7 +40,7 @@ export default defineConfig(({ command, mode }) => {
       alias: getAliases(),
     },
     // base: '/',
-    base: 'https://edwinsono.github.io/todolist/',
+    base: 'https://edwinsono.github.io/blog-react/',
   }
   
   console.log(`comando: ${command} y modo: ${mode}`);
