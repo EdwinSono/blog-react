@@ -1,16 +1,33 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { useAuth } from '../auth';
+import { Navigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../services/auth';
+import { useUsersDB } from '../services/usersDB';
 
 function LoginPage() {
   const auth: any = useAuth();
+  const usersDB: any = useUsersDB();
+  const location = useLocation();
   const [username, setUsername] = React.useState('');
-  
+  const [error, setError] = React.useState(false);
+
   const login = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    auth.login({ username });
+
+    const user = usersDB.findUser(username);
+
+    if (user) {
+      auth.login(user);
+    } else {
+      setError(true);
+    }
   };
-  
+
+  if (auth.user) {
+    const path = location.state?.from?.pathname || '/profile';
+    return <Navigate to={path} replace />;
+  }
+
   return (
     <>
       <h1>Login</h1>
@@ -24,6 +41,11 @@ function LoginPage() {
 
         <button type="submit">Entrar</button>
       </form>
+
+      {error && (
+        <p style={{ color: 'red', marginTop: '4px' }}>User doesn't exist!</p>
+      )}
+
     </>
   );
 }

@@ -19,6 +19,16 @@ routes.push({
   private: false,
 });
 routes.push({
+  to: '/states',
+  text: 'Estados',
+  private: false,
+});
+routes.push({
+  to: '/profile',
+  text: 'Profile',
+  private: true,
+});
+routes.push({
   to: '/login',
   text: 'Login',
   private: false,
@@ -28,16 +38,6 @@ routes.push({
   to: '/logout',
   text: 'Logout',
   private: true,
-});
-routes.push({
-  to: '/profile',
-  text: 'Profile',
-  private: true,
-});
-routes.push({
-  to: '/states',
-  text: 'Estados',
-  private: false,
 });
 
 export { routes };

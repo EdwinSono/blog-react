@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // import React from 'react';
-import { useAuth } from '../auth';
+import { useAuth } from '../services/auth';
 
 function LogoutPage() {
   const auth: any = useAuth();

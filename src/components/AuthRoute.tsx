@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../auth"
+import { useAuth } from "../services/auth"
 import { FC, PropsWithChildren } from "react";
 
 const AuthRoute:FC<PropsWithChildren> = ({ children }) =>{

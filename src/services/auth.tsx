@@ -1,32 +1,29 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { createContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import {IUser} from '../data/users'
 
 interface IAuthProvider {
   children : any
 }
 
 interface IAuthContext {
-  user: {
-    username: string
-  };
+  user: IUser;
   login: any;
   logout: any;
-}
-
-interface IUser {
-  username : string;
 }
 
 const AuthContext = createContext<IAuthContext | any>(null);
 
 function AuthProvider({ children } : IAuthProvider) {
   const navigate = useNavigate();
-  const [user, setUser] = useState<IAuthContext | any>(null);
+  const location = useLocation();
+  const [user, setUser] = useState<IUser | null>(null);
 
-  const login = ({ username }: IUser) => {
-    setUser({ username });
-    navigate('/profile');
+  const login = (user: IUser) => {
+    setUser(user);
+    const path = location.state?.from?.pathname || '/profile';
+    return navigate(path, { replace: true });
   };
   
   const logout = () => {
@@ -34,7 +31,13 @@ function AuthProvider({ children } : IAuthProvider) {
     navigate('/');
   };
   
-  const auth: IAuthContext = { user, login, logout };
+  const update = (data: IUser) => {
+    setUser({ ...user, ...data });
+  };
+
+  const isLogged = user !== null;
+
+  const auth = { user, login, logout, update, isLogged };
 
   return (
     <AuthContext.Provider value={auth}>
